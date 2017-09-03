@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/gorina-helpers.csproj"
+                "${workspaceRoot}/CSVRearrange.csproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
