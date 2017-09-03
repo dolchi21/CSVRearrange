@@ -5,7 +5,7 @@ using NDesk.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace gorina_helpers
+namespace CSVRearrange
 {
     public class CSVMap
     {

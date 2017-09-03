@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace gorina_helpers
+namespace CSVRearrange
 {
     public class AppState
     {

@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
-namespace gorina_helpers
+namespace CSVRearrange
 {
     public static class Global
     {
