@@ -61,11 +61,14 @@ namespace CSVRearrange
         static void setup(string[] args)
         {
             var p = new OptionSet(){
-                {"output=", str => {
-                    state.OutputFile = str;
-                }},
                 {"input=", str => {
                     state.InputFile = str;
+                }},
+                {"maps=", str => {
+                    state.MapsFile = str;
+                }},
+                {"output=", str => {
+                    state.OutputFile = str;
                 }}
             };
             List<string> extra = p.Parse(args);
