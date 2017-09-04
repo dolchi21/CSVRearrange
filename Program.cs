@@ -8,11 +8,6 @@ using Newtonsoft.Json.Linq;
 
 namespace CSVRearrange
 {
-    public class CSVMap
-    {
-        public int Source { get; set; }
-        public int Target { get; set; }
-    }
     class Program
     {
         static AppState state = AppState.Instance;
@@ -58,6 +53,9 @@ namespace CSVRearrange
         static void setup(string[] args)
         {
             var p = new OptionSet(){
+                {"config=", str => {
+                    state.ConfigurationFile = str;
+                }},
                 {"input=", str => {
                     state.InputFile = str;
                 }},

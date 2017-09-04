@@ -1,4 +1,7 @@
 {
+    "input": {
+        "encoding": "Windows-1252"
+    },
     "output": {
         "columns": 51,
         "encoding": "utf-8",

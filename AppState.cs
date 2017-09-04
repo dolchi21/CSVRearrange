@@ -13,6 +13,7 @@ namespace CSVRearrange
             Lines = new List<string[]>();
             MapsFile = "maps.json";
             OutputFile = "output.txt";
+            OutputFileColumns = 99;
             OutputFileSeparator = ';';
         }
         static public AppState Instance
