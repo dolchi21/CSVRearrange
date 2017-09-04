@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Text;
 using NDesk.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -18,8 +19,10 @@ namespace CSVRearrange
         static void Main(string[] args)
         {
             setup(args);
+            loadConfigurationFile();
             loadMaps();
             process();
+            Console.WriteLine(Encoding.Default.EncodingName);
             Console.WriteLine(state.MapsFile);
             Console.WriteLine(state.InputFile);
             Console.WriteLine(state.OutputFile);
@@ -31,12 +34,6 @@ namespace CSVRearrange
 
             var reader = new StreamReader(state.InputFile);
             var output = new StreamWriter(state.OutputFile);
-
-            string[] headers = new string[51];
-            for (int i = 0; i < headers.Length; i++)
-                headers[i] = "Campo" + (i + 1);
-            output.WriteLine(String.Join(';', headers));
-
 
             while (!reader.EndOfStream)
             {
@@ -50,7 +47,7 @@ namespace CSVRearrange
                         newRow[map.Target] = row[map.Source];
                     }
                 }
-                string newLine = String.Join(';', newRow);
+                string newLine = String.Join(";", newRow);
                 output.WriteLine(newLine);
             }
 
@@ -91,6 +88,17 @@ namespace CSVRearrange
                 Global.error("JSON.parse failed.", ex);
                 throw ex;
             }
+        }
+        static void loadConfigurationFile()
+        {
+            if (state.ConfigurationFile == null) return;
+            string fileContent = File.ReadAllText(state.ConfigurationFile);
+            JObject config = JObject.Parse(fileContent);
+            if (config["output"]["columns"] != null)
+            {
+                state.OutputFileColumns = (int)config["output"]["columns"];
+            }
+
         }
     }
 }

@@ -7,10 +7,11 @@ namespace CSVRearrange
         static private AppState instance;
         private AppState()
         {
-            MapsFile = @"./maps.json";
-            InputFile = "files/input.txt";
-            OutputFile = "files/output.txt";
+            ConfigurationFile = "config.json";
+            InputFile = "input.txt";
             Lines = new List<string[]>();
+            MapsFile = "maps.json";
+            OutputFile = "output.txt";
         }
         static public AppState Instance
         {
@@ -20,10 +21,12 @@ namespace CSVRearrange
                 return instance;
             }
         }
+        public string ConfigurationFile { get; set; }
         public string InputFile { get; set; }
-        public string OutputFile { get; set; }
-        public string MapsFile { get; set; }
-        public List<CSVMap> Maps { get; set; }
         public List<string[]> Lines { get; set; }
+        public List<CSVMap> Maps { get; set; }
+        public string MapsFile { get; set; }
+        public string OutputFile { get; set; }
+        public int OutputFileColumns { get; set; }
     }
 }
