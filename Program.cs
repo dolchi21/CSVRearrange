@@ -94,11 +94,17 @@ namespace CSVRearrange
             if (state.ConfigurationFile == null) return;
             string fileContent = File.ReadAllText(state.ConfigurationFile);
             JObject config = JObject.Parse(fileContent);
-            if (config["output"]["columns"] != null)
+
+            if (config["input"] != null)
             {
-                state.OutputFileColumns = (int)config["output"]["columns"];
+                if (config["input"]["separator"] != null) state.InputFileSeparator = (char)config["input"]["separator"];
             }
 
+            if (config["output"] != null)
+            {
+                if (config["output"]["columns"] != null) state.OutputFileColumns = (int)config["output"]["columns"];
+                if (config["output"]["separator"] != null) state.OutputFileSeparator = (char)config["output"]["separator"];
+            }
         }
     }
 }

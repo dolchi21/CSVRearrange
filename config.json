@@ -1,6 +1,7 @@
 {
     "output": {
         "columns": 51,
-        "encoding": "utf-8"
+        "encoding": "utf-8",
+        "separator": ";"
     }
 }
