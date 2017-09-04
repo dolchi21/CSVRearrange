@@ -7,7 +7,6 @@ namespace CSVRearrange
         static private AppState instance;
         private AppState()
         {
-            ConfigurationFile = "config.json";
             InputFile = "input.txt";
             InputFileSeparator = ';';
             Lines = new List<string[]>();
