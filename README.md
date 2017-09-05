@@ -1,6 +1,8 @@
 ## use
 
 ```bash
+dotnet CSVRearrange.dll --config=config.json --maps=maps.json --input=input.txt --output=output.txt
+
 CSVRearrange.exe --config=config.json --maps=maps.json --input=input.txt --output=output.txt
 ```
 
